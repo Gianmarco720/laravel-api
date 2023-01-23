@@ -102,6 +102,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
+        $technologies = Technology::all();
         return view('admin.projects.edit', compact('project', 'types'));
     }
 
@@ -135,6 +136,13 @@ class ProjectController extends Controller
 
         // update the resource
         $project->update($val_data);
+
+        // Update the project's technology
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($val_data['technologies']);
+        } else {
+            $project->technologies()->sync([]);
+        }
 
         // redirect to index page
         return to_route('admin.projects.index')->with('message', "Project id: $project->id Updated Successfully");
