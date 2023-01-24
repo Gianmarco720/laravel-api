@@ -12,7 +12,7 @@
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror"
-                placeholder="My New Project" aria-describedby="titleHelper" value="{{ old($project->title) }}">
+                placeholder="My New Project" aria-describedby="titleHelper" value="{{ old('title', $project->title) }}">
             <small id="titleHelper" class="text-muted">Add a title for your new project, max 100 characters, must be
                 unique</small>
         </div>
