@@ -3,8 +3,8 @@
     Hai un nuovo messaggio!!<br>
     Ecco i dettagli<br>
 
-    Nome: {{ $lead->name }}
-    Email: {{ $lead->email }}
+    Nome: {{ $lead->name }}<br>
+    Email: {{ $lead->email }}<br>
     Messaggio:<br>
     {{ $lead->message }}
 </p>
